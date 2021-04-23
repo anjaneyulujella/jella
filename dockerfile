@@ -2,6 +2,6 @@ FROM ubuntu
 RUN apt-get update -y
 RUN apt-get install vim -y 
 CMD apt-get install apache2 -y 
-CMD service apache2 start 
+CMD service apache2 start && /bin/bash
 COPY ./index.html /var/www/html
  
