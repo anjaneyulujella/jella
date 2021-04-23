@@ -1,7 +1,7 @@
 FROM ubuntu
 RUN apt-get update -y
 RUN apt-get install vim -y 
-ENTRYPOINT apt-get install apache2 -y 
+CMD apt-get install apache2 -y 
 ENTRYPOINT service apache2 start 
 COPY ./index.html /var/www/html
  
