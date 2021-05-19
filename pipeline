@@ -35,7 +35,7 @@ stage ('login to  container')
 {
 steps
 {
-sh 'docker exec -it anji /bin/bash' 
+sh 'docker exec -it anji' 
 }
 }
 }
