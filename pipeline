@@ -28,7 +28,7 @@ stage ('create container')
 {
 steps
 {
-sh 'docker run -dti --name anji -p 92:80 uma /bin/bash'
+sh 'docker run -dti --name anji -p 93:80 uma /bin/bash'
 }
 }
 }
