@@ -7,7 +7,7 @@ stage ('pull code from scm')
 {
 steps 
 {
-git branch: 'dev', credentialsId: 'github', url: 'https://github.com/anjaneyulujella/dev.git'
+git credentialsId: 'mycred', url: 'https://github.com/anjaneyulujella/jella.git'
 }
 }
 stage ('build docker file')
@@ -15,6 +15,20 @@ stage ('build docker file')
 steps
 {
 sh 'docker build -t uma .'
+}
+}
+stage ('delete container if already exists')
+{
+steps
+{
+sh 'docker rm -f anji'
+}
+}
+stage ('create container')
+{
+steps
+{
+sh 'docker run -dti --name anji -p 91:80 uma /bin/bash'
 }
 }
 }
