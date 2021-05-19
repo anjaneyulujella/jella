@@ -31,5 +31,10 @@ steps
 sh 'docker run -dti --name anji -p 91:80 uma /bin/bash'
 }
 }
+stage ('login to  container')
+{
+steps
+{
+sh 'docker exec -it anji /bin/bash' 
 }
 }
