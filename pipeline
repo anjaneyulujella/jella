@@ -7,7 +7,7 @@ stage ('pull code from scm')
 {
 steps 
 {
-git branch: 'main', credentialsId: 'github', url: 'https://github.com/anjaneyulujella/may.git'
+git branch: 'dev', credentialsId: 'github', url: 'https://github.com/anjaneyulujella/dev.git'
 }
 }
 stage ('build docker file')
