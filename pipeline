@@ -23,7 +23,10 @@ steps
 {
 withDockerRegistry(credentialsId: 'ecr:us-west-1:ecr', url: '124179886194.dkr.ecr.us-west-1.amazonaws.com') 
 {
+script
+{
 docker.image('uma').push('124179886194.dkr.ecr.us-west-1.amazonaws.com/jella:latest')
+}
 }
 }
 }
