@@ -14,7 +14,7 @@ stage ('build docker file')
 {
 steps
 {
-sh 'docker build -t uma .'
+sh 'docker build -t uma:1 .'
 }
 }
 stage ('Docker push')
@@ -25,11 +25,11 @@ withDockerRegistry(credentialsId: 'ecr:us-west-1:ecr', url: 'https://12417988619
 {
 script
 {
-docker tag uma:latest 124179886194.dkr.ecr.us-west-1.amazonaws.com/uma:latest
+docker tag uma:1 124179886194.dkr.ecr.us-west-1.amazonaws.com/uma:2
 {
 script
 {
-docker.image('uma').push('124179886194.dkr.ecr.us-west-1.amazonaws.com/uma:latest')
+docker.image('uma').push('124179886194.dkr.ecr.us-west-1.amazonaws.com/uma:2')
 }
 }
 }
