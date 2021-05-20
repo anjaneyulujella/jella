@@ -35,7 +35,7 @@ stage('push image')
 {
 steps
 {
-docker push 124179886194.dkr.ecr.us-west-1.amazonaws.com/jella
+docker push (124179886194.dkr.ecr.us-west-1.amazonaws.com/jella)
 }
 }
 }
