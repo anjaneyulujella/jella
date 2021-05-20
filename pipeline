@@ -25,7 +25,7 @@ withDockerRegistry(credentialsId: 'ecr:us-west-1:ecr', url: 'https://12417988619
 {
 script
 {
-docker.image('uma').push('124179886194.dkr.ecr.us-west-1.amazonaws.com/jella:latest')
+docker.image('uma').push('latest')
 }
 }
 }
