@@ -22,12 +22,13 @@ stage ('Docker push')
 steps
 {
 withDockerRegistry(credentialsId: 'ecr:us-west-1:ecr', url: 'https://124179886194.dkr.ecr.us-west-1.amazonaws.com') 
+}
+}
+stage ('tag')
 {
-script
+steps
 {
 docker tag uma:1 124179886194.dkr.ecr.us-west-1.amazonaws.com/jella:2
-}
-}
 }
 }
 stage('push image')
