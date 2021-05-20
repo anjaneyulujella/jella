@@ -21,9 +21,8 @@ stage ('Docker push')
 {
 steps
 {
-withDockerRegistry('https://124179886194.dkr.ecr.us-west-1.amazonaws.com', 'ecr:us-west-1:uma-ecr-credentials') 
-{
-docker.image('uma').push('1.0')
+withDockerRegistry('https://124179886194.dkr.ecr.us-west-1.amazonaws.com', 'ecr:us-west-1:uma-ecr-credentials') {
+  docker.image('uma').push('1.0')
 }
 }
 }
