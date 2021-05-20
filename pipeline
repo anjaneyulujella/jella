@@ -7,7 +7,7 @@ stage ('pull code from scm')
 {
 steps 
 {
-git branch: 'dev', credentialsId: 'github', url: 'https://github.com/anjaneyulujella/dev.git'
+git branch: 'main', credentialsId: 'pipeline', url: 'https://github.com/anjaneyulujella/may.git'
 }
 }
 stage ('build docker file')
@@ -21,7 +21,7 @@ stage ('Docker push')
 {
 steps
 {
-withDockerRegistry('124179886194.dkr.ecr.us-west-1.amazonaws.com/jella') 
+withDockerRegistry(credentialsId: 'ecr:us-west-1:ecr', url: '124179886194.dkr.ecr.us-west-1.amazonaws.com') 
 {
 docker.image('uma').push('1.0')
 }
@@ -29,4 +29,3 @@ docker.image('uma').push('1.0')
 }
 }
 }
-
