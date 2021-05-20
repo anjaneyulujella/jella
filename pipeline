@@ -17,18 +17,14 @@ steps
 sh 'docker build -t uma .'
 }
 }
-stage ('delete container if already exists')
+stage ('Docker push')
 {
 steps
 {
-sh 'docker rm -f anji'
-}
-}
-stage ('create container')
+withDockerRegistry('https://124179886194.dkr.ecr.us-west-1.amazonaws.com', 'ecr:us-west-1:uma-ecr-credentials') 
 {
-steps
-{
-sh 'docker run -dti --name anji -p 90:80 uma /bin/bash'
+docker.image('uma').push('1.0')
+}
 }
 }
 }
