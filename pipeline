@@ -23,7 +23,7 @@ steps
 {
 withDockerRegistry(credentialsId: 'dh', url: ' https://index.docker.io/v1/')
 {
-sh 'docker tag anji:latest 9700141998/myimage:anji'
+sh 'docker tag anji 9700141998/myimage:anji'
 sh 'docker push 9700141998/myimage:anji'
 }
 }
