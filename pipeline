@@ -14,7 +14,7 @@ stage ('build docker file')
 {
 steps
 {
-sh 'docker build -t uma .'
+sh 'docker build -t anji .'
 }
 }
 stage ('Docker push')
@@ -23,8 +23,8 @@ steps
 {
 withDockerRegistry(credentialsId: 'ecr:us-west-1:ecr', url: 'https://124179886194.dkr.ecr.us-west-1.amazonaws.com')  
 {
-sh 'docker tag uma:latest 124179886194.dkr.ecr.us-west-1.amazonaws.com/jella:jella'
-sh 'docker push 124179886194.dkr.ecr.us-west-1.amazonaws.com/jella:jella'
+sh 'docker tag anji:latest 124179886194.dkr.ecr.us-west-1.amazonaws.com/jella:anjaneyulu'
+sh 'docker push 124179886194.dkr.ecr.us-west-1.amazonaws.com/jella:anjaneyulu'
 }
 }
 }
