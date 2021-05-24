@@ -14,7 +14,7 @@ stage ('build docker file')
 {
 steps
 {
-sh 'docker build -t uma:jella .'
+sh 'docker build -t uma .'
 }
 }
 stage ('Docker push')
@@ -23,8 +23,8 @@ steps
 {
 withDockerRegistry(credentialsId: 'dh', url: ' https://index.docker.io/v1/')
 {
-sh 'docker tag uma:jella 9700141998/myimage:uma:jella'
-sh 'docker push 9700141998/myimage:uma:jella'
+sh 'docker tag uma:jella 9700141998/myimage:uma'
+sh 'docker push 9700141998/myimage:uma'
 }
 }
 }
