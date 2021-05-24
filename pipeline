@@ -31,4 +31,4 @@ sh 'docker push 9700141998/myimage:1'
 }
 }
 }
-
+}
