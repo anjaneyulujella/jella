@@ -21,9 +21,9 @@ stage ('Docker push')
 {
 steps
 {
-withDockerRegistry([credentialsId: 'dh', url: ' https://index.docker.io/v1/'])
+withDockerRegistry(credentialsId: 'dh', url: ' https://index.docker.io/v1/')
 {
-sh 'docker push uma:jella'
+sh 'docker push uma'
 }
 }
 }
