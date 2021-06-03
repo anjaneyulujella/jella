@@ -32,7 +32,7 @@ stage ('pull image from ecr')
 {
 steps
 {
-ansiblePlaybook credentialsId: 'devopsuser', installation: 'ansible', inventory: '/etc/ansible/roles/jella/tests/inventory', playbook: '/etc/ansible/roles/jella/tasks/main.yml'
+ansiblePlaybook credentialsId: 'devopsuser', installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/playbooks/deploy.yml''
 }
 }
 }
