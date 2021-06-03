@@ -28,9 +28,15 @@ sh 'docker push 124179886194.dkr.ecr.us-west-1.amazonaws.com/jella:anjaneyulu'
 }
 }
 }
+stage ('pull image from ecr')
+{
+steps
+{
+ansiblePlaybook credentialsId: 'devcred', installation: 'ansible', inventory: '/etc/ansible/roles/jella/tests/inventory', playbook: '/etc/ansible/roles/jella/tests/test.yml'
 }
 }
-
+}
+}
 
 
 
