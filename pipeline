@@ -28,15 +28,35 @@ sh 'docker push 124179886194.dkr.ecr.us-west-1.amazonaws.com/jella:anjaneyulu'
 }
 }
 }
-stage ('pull image from ecr')
+stage ('execute playbook on dev env')
 {
 steps
 {
-ansiblePlaybook credentialsId: 'devopsuser', installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/playbooks/deploy.yml'
+script
+{
+if("$(params.jella)" == "dev")
+{
+ansiblePlaybook credentialsId: 'root', installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/playbooks/deploy.yml', skippedTags: 'qa'
 }
 }
 }
 }
+//
+stage ('execute playbook on qa env')
+{
+steps
+{
+script
+{
+if("$(params.jella)" == "qa")
+{
+ansiblePlaybook credentialsId: 'root', installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/playbooks/deploy.yml', skippedTags: 'dev'
+}
+}
+}
+}
+
+
 
 
 
